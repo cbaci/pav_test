@@ -4,7 +4,7 @@
  */
 
 //Load projects as JSON.
-var ob = require('../projects.json');
+var ob = require('../complex.json');
 
 console.log(ob);
 console.log(ob[0].id);
