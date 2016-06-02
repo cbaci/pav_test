@@ -14,7 +14,7 @@ block content
    li #{oblist[0].dock[5].title}
    
   -for(var proj in oblist)
-   p #{oblist}: #{oblist[proj]}
+   a(href='#{oblist[proj].url}') #{oblist[proj].id}: #{oblist[proj].name}
   
   ul
   -for(var val in oblist[0].dock)
