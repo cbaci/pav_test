@@ -12,7 +12,11 @@ block content
    li #{oblist[0].dock[3].title}
    li #{oblist[0].dock[4].title}
    li #{oblist[0].dock[5].title}
+   
+  -for(var proj in oblist)
+   p #{oblist}: #{oblist[proj]}
+  
   ul
-   each val in #{oblist[0].length}
-   li= val
+  -for(var val in oblist[0].dock)
+   li= oblist[0].dock[val].title
    
