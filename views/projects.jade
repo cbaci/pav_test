@@ -4,19 +4,10 @@ block content
 
   h1= title
   p Welcome to #{title}
-  p #{oblist[0].id}
-  ul
-   li #{oblist[0].dock[0].title}
-   li #{oblist[0].dock[1].title}
-   li #{oblist[0].dock[2].title}
-   li #{oblist[0].dock[3].title}
-   li #{oblist[0].dock[4].title}
-   li #{oblist[0].dock[5].title}
    
   -for(var proj in oblist)
    a(href='#{oblist[proj].url}') #{oblist[proj].id}: #{oblist[proj].name}
-  
-  ul
-  -for(var val in oblist[0].dock)
-   li= oblist[0].dock[val].title
+   -for(var val in oblist[proj].dock)
+    ul
+     a(href='#{oblist[proj].dock[val].url}') #{oblist[proj].dock[val].title} 
    
