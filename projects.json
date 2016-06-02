@@ -1,1 +1,64 @@
-[{"id":649905,"status":"active","created_at":"2016-03-25T16:07:14.000-05:00","updated_at":"2016-04-27T21:42:54.140-05:00","name":"Pavilion","description":"Enterprise Aggregator Extension for Basecamp3","url":"https://3.basecamp.com/3328549/projects/649905","bookmark_url":"https://3.basecamp.com/3328549/my/bookmarks/BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vYmMzL0J1Y2tldC82NDk5MDU%2FZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDXJlYWRhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--4d842e757373225cd97f064d2344cbb51016da4b","vault_url":"https://3.basecamp.com/3328549/buckets/649905/vaults/92712978","dock":[{"id":92712968,"title":"Campfire","name":"chat","url":"https://3.basecamp.com/3328549/buckets/649905/chats/92712968.json","enabled":true,"position":1},{"id":92712970,"title":"Message Board","name":"message_board","url":"https://3.basecamp.com/3328549/buckets/649905/message_boards/92712970.json","enabled":true,"position":2},{"id":92712971,"title":"To-dos","name":"todoset","url":"https://3.basecamp.com/3328549/buckets/649905/todosets/92712971.json","enabled":true,"position":3},{"id":92712972,"title":"Schedule","name":"schedule","url":"https://3.basecamp.com/3328549/buckets/649905/schedules/92712972.json","enabled":true,"position":4},{"id":92712973,"title":"Automatic Check-ins","name":"questionnaire","url":"https://3.basecamp.com/3328549/buckets/649905/questionnaires/92712973.json","enabled":true,"position":5},{"id":92712978,"title":"Docs \u0026 Files","name":"vault","url":"https://3.basecamp.com/3328549/buckets/649905/vaults/92712978.json","enabled":true,"position":6}],"bookmarked":false}]
+[
+    {
+        "id":649905,
+        "status":"active",
+        "created_at":"2016-03-25T16:07:14.000-05:00",
+        "updated_at":"2016-04-27T21:42:54.140-05:00",
+        "name":"Pavilion",
+        "description":"Enterprise Aggregator Extension for Basecamp3",
+        "url":"https://3.basecamp.com/3328549/projects/649905",
+        "bookmark_url":"https://3.basecamp.com/3328549/my/bookmarks/BAh7CEkiCGdpZAY6BkVUSSInZ2lkOi8vYmMzL0J1Y2tldC82NDk5MDU%2FZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDXJlYWRhYmxlBjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--4d842e757373225cd97f064d2344cbb51016da4b",
+        "vault_url":"https://3.basecamp.com/3328549/buckets/649905/vaults/92712978",
+        "dock":[
+            {
+                "id":92712968,
+                "title":"Campfire",
+                "name":"chat",
+                "url":"https://3.basecamp.com/3328549/buckets/649905/chats/92712968.json",
+                "enabled":true,
+                "position":1
+            },
+            {
+                "id":92712970,
+                "title":"Message Board",
+                "name":"message_board",
+                "url":"https://3.basecamp.com/3328549/buckets/649905/message_boards/92712970.json",
+                "enabled":true,
+                "position":2
+            },
+            {
+                "id":92712971,
+                "title":"To-dos",
+                "name":"todoset",
+                "url":"https://3.basecamp.com/3328549/buckets/649905/todosets/92712971.json",
+                "enabled":true,
+                "position":3
+            },
+            {
+                "id":92712972,
+                "title":"Schedule",
+                "name":"schedule",
+                "url":"https://3.basecamp.com/3328549/buckets/649905/schedules/92712972.json",
+                "enabled":true,
+                "position":4
+            },
+            {
+                "id":92712973,
+                "title":"Automatic Check-ins",
+                "name":"questionnaire",
+                "url":"https://3.basecamp.com/3328549/buckets/649905/questionnaires/92712973.json",
+                "enabled":true,
+                "position":5
+            },
+            {
+                "id":92712978,
+                "title":"Docs \u0026 Files",
+                "name":"vault",
+                "url":"https://3.basecamp.com/3328549/buckets/649905/vaults/92712978.json",
+                "enabled":true,
+                "position":6
+            }
+        ],
+        "bookmarked":false
+    }
+]

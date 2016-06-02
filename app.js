@@ -6,11 +6,12 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , projects = require('./routes/projects')
   , http = require('http')
   , path = require('path');
 
 //Load projects as JSON.
-var ob = require('./simple.json');
+//var ob = require('./simple.json');
 
 var app = express();
 
@@ -30,14 +31,6 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next){
-	  res.locals.ob = ob;
-	  next();
-	});
-
-// set object for templates
-//app.locals.ob = ob;
-console.log(ob);
 
 // development only
 if ('development' === app.get('env')) {
@@ -46,6 +39,7 @@ if ('development' === app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/projects', projects.list);
 
 
 http.createServer(app).listen(app.get('port'), function(){
