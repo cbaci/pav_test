@@ -1,10 +1,7 @@
 extends layout
 
 block content
+
   h1= title
   p Welcome to #{title}
-  
--var ob = JSON.parse(json)
--for(var prop in ob)
- p #{prop}: #{ob[prop]}
-  
+  p #{locals.ob}

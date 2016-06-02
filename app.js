@@ -7,11 +7,17 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path')
-  , json = require('./projects.json')
-  ,	ob = require JSON.parse(json);
+  , path = require('path');
+
+//Load projects as JSON.
+var ob = require('./simple.json');
 
 var app = express();
+
+//app.use(function(req, res, next){
+//	  res.locals.ob = ob;
+//	  next();
+//	});
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -24,8 +30,17 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next){
+	  res.locals.ob = ob;
+	  next();
+	});
+
+// set object for templates
+//app.locals.ob = ob;
+console.log(ob);
+
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 

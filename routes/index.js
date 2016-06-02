@@ -3,7 +3,6 @@
  * GET home page.
  */
 
-exports.index = function(req, res){
-//  res.render('index', { title: 'Express' });
-  res.render('index', { layout : 'layout', json: ob });
-};
+exports.index = function(next, req, res){  
+  res.render('index', { title: 'Express' });
+  };
