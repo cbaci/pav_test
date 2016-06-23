@@ -6,6 +6,7 @@
     "start": "node app.js",
     "test": "mocha test/persist-tests.js",
     "simple-test": "mocha test/persist-simple.js",
+    "pg-test": "mocha test/pg-test.js",
     "seq-test": "mocha test/sequelize-tests.js"
   },
   "dependencies": {

@@ -16,14 +16,36 @@ describe('creating a table using persist Tests', function () {
 
 it('create person table', function (done) {
 	// define some model objects 
-	Phone = persist.define("Phone", {
-	  "number": type.STRING
-	});
-	 
-	Person = persist.define("Person", {
-	  "firstname": type.STRING,
-	  "lastname": type.STRING
-	});
+//	Phone = persist.define("Phone", {
+//	  "number": type.STRING
+//	});
+//	 
+//	Person = persist.define("Person", {
+//	  "firstname": type.STRING,
+//	  "lastname": type.STRING
+//	});
+	
+//	[
+//	  {
+//	    "id": 1007299144,
+//	    "created_at": "2016-01-27T11:00:15.486-06:00",
+//	    "updated_at": "2016-03-26T19:30:59.746-05:00",
+//	    "name": "Victor Cooper",
+//	    "email_address": "victor@honchodesign.com",
+//	    "personable_type": "User",
+//	    "title": null,
+//	    "admin": true,
+//	    "owner": true,
+//	    "avatar_url": "https://3.basecamp-assets.com/195539477/people/BAhpBEgqCjw=--8266bb0507508f3d46050d57b65924d5e2a005f3/avatar-64-x4",
+//	    "company": {
+//	      "id": 1033447818,
+//	      "name": "Honcho Design"
+//	    }
+//	  },
+//	  ...
+//	]
+	
+	var sqlstr = "CREATE TABLE PEOPLE (ID TEXT, NAME TEXT);";
 	 
 	persist.connect({
 	  driver: 'pg',
@@ -35,6 +57,7 @@ it('create person table', function (done) {
       	}
       	else     console.log("Successfully connected to database");			
 	  Person.using(connection).save(function(err, people) {
+		  console.log(err);		
 	    // people contains all the people 
 	  });
 	});

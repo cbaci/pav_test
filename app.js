@@ -10,15 +10,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
-//Load projects as JSON.
-//var ob = require('./simple.json');
-
 var app = express();
 
-//app.use(function(req, res, next){
-//	  res.locals.ob = ob;
-//	  next();
-//	});
 
 // all environments
 app.set('port', process.env.PORT || 3000);
