@@ -5,16 +5,29 @@ var pgq = require("pg-query");
  
 var conString = "postgres://pav:pavpwd@localhost/pavdb";
 
-
 //this initializes a connection pool
 //it will keep idle connections open for a (configurable) 30 seconds
 //and set a limit of 10 (also configurable)
 before(function (done) {
+		var client = new pg.Client(conString);
+		client.connect(function(err) {
+			  if(err) {
+			    console.error('could not connect to postgres in before', err);
+			  } else console.error('connected to postgres in before');
 
+			  client.query('SELECT NOW() AS "theTime"', function(err, result) {
+			    if(err) {
+			      console.error('error running query', err);
+			    } else console.error('success running query in before');
+			    console.log(result.rows[0].theTime);
+			    //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST) 
+			  });
+		});
+    //client.end();
 	done();
 });	
 
-describe('creating a table using persist Tests', function () {
+describe('creating a table and insert using pg ', function () {
 
 //	[
 //	  {
@@ -42,21 +55,60 @@ describe('creating a table using persist Tests', function () {
 //	});
 
 	it('create person table using pg', function (done) {
+	var client = new pg.Client(conString);
+		client.connect(function(err) {
+			  if(err) {
+			        console.error('could not connect to postgres in create', err);
+			  }
+			  else 	console.error('connected to postgres in create');
+
+		});
+
+	 console.log("Start of create query");
+	 var createquery = client.query("CREATE TABLE IF NOT EXISTS person(firstname varchar(64), lastname varchar(64));", function(err, result) {
+	    if(err) {
+	      console.error('error running create query', err);
+	    } else console.error('success running create query in person table test');
+	    console.log(result.rows[0].theTime);
+	    //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST) 
+	  })
+	 .on("commandComplete", function (result) {
+			    console.log("End of create query");
+		    //client.end(); - this endds the connection 
+		});
+
+    //client.end();
+	done();
+	});
+
+	it('insert into person table using pg', function (done) {
+
 		var client = new pg.Client(conString);
 		client.connect();
 
-		 client.query("CREATE TABLE IF NOT EXISTS emps(firstname varchar(64), lastname varchar(64))");
-		 client.query("INSERT INTO emps(firstname, lastname) values($1, $2)", ['Ronald', 'McDonald']);
-		 client.query("INSERT INTO emps(firstname, lastname) values($1, $2)", ['Mayor', 'McCheese']);
+		 var insertquery1 = client.query("INSERT INTO person(firstname, lastname) values($1, $2)", ['Ronald', 'McDonald']);
+	 console.log("Start of insert 1 query");
+			insertquery1.on("end", function (result) {
+			    console.log("End of insert query 1");
+			    client.end();
+			});
 
-		var query = client.query("SELECT firstname, lastname FROM emps ORDER BY lastname, firstname");
+		 var insertquery2 = client.query("INSERT INTO person(firstname, lastname) values($1, $2)", ['Mayor', 'McCheese']);
+	 console.log("Start of insert 2 query");
+			insertquery2.on("end", function (result) {
+			    console.log("End of insert query 2");
+			    client.end();
+			});
+
+		var query = client.query("SELECT firstname, lastname FROM person ORDER BY lastname, firstname");
 		query.on("row", function (row, result) {
 		    result.addRow(row);
 		});
 		query.on("end", function (result) {
-		    console.log(JSON.stringify(result.rows, null, "    "));
-		    client.end();
+		    console.log("End of select query");
+			console.log(JSON.stringify(result.rows, null, "    "));
 		});
+	client.end();
 	done();
 	});
 });
