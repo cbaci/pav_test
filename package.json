@@ -3,11 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha test/persist-tests.js",
+    "simple-test": "mocha test/persist-simple.js",
+    "seq-test": "mocha test/sequelize-tests.js"
   },
   "dependencies": {
+    "pg": "5.1.0",
     "express": "3.2.6",
     "jade": "*",
-    "jsonfile": "^2.3.0"
+    "jsonfile": "^2.3.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-mocha-cli": "^1.11.0"
   }
 }
